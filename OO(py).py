@@ -339,3 +339,80 @@ s.length()
 s.area()
 
 #--------------------------------------------------------------------------#
+
+class Calculator:
+   a = 10
+   b = 20
+
+   def add(self):
+      return self.a + self.b
+
+c1 = Calculator()
+print(c1.add())
+
+# = 30 
+#--------------------------------------------------------------------------#
+
+class Calculator:
+   def __init__(self, a, b):
+      self.a = a
+      self.b = b
+
+   def add(self):
+      return self.a + self.b
+   
+c1 = Calculator(10, 20)
+print(c1.add())
+
+# = 1. __init__
+# = 2. c1.add()
+#--------------------------------------------------------------------------#
+
+class Triangle:
+   def __init__(self, width, height):
+      self.width = width
+      self.height = height
+   def area(self):
+      print("삼각형 면적", self.width * self.height / 2)
+
+#--------------------------------------------------------------------------#
+
+class Father:
+   def __init__(self, father_name):
+      self.father_name = father_name
+   def print_father(self):
+      print("부모 : "+ self.father_name)
+
+class Child(Father):
+   def __init__(self, name1, name2):
+      super().__init__(name1)
+      self.child_name = name2
+   def print_child(self):
+      print("아이 : " + self.child_name)
+
+father1 = Father("흥부모")
+father1.print_father()
+child1 = Child("최부모", "최아이")
+child1.print_father()
+child1.print_child()
+
+#--------------------------------------------------------------------------#
+
+class Buffer:
+   def __init__(self):
+      self.buffer = []
+   def push_data(self, x):
+      self.buffer.append(x)
+   def get_data(self, index):
+      return self.buffer[index]
+   
+buffer1 = Buffer()
+buffer1.push_data(5)
+buffer1.push_data(8)
+buffer1.push_data(12)
+print(buffer1.push_data)
+
+print(buffer1.get_data(0))
+print(buffer1.get_data(2))
+
+#--------------------------------------------------------------------------#
