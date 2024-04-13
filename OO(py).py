@@ -280,3 +280,62 @@ x.show_name()
 x.show_age()
 
 #--------------------------------------------------------------------------#
+
+class Person:
+   def __init__(self, name):
+      self.name = name
+   def show_name(self):
+      print(self.name)
+
+class Student(Person):
+   def show_name(self):
+      print("환영합니다!")
+      print(self.name + "님 반갑습니다.")
+
+x = Student("홍길동")
+x.show_name()
+
+#--------------------------------------------------------------------------#
+
+class Employee:
+   count = 0
+   def __init__(self, name, position):
+      self.name = name
+      self.position = position
+      Employee.count = Employee.count + 1
+   def show_info(self):
+      print("이름 : %s, 직위 : %s" % (self.name, self.position))
+
+e1 = Employee("최진영", "대리")
+e1.show_info()
+
+e2 = Employee("김수정", "과장")
+e2.show_info()
+
+e3 = Employee("정선주", "부장")
+e3.show_info()
+
+print("총 직원 :", Employee.count)
+
+#--------------------------------------------------------------------------#
+
+class Rectangle():
+   def __init__(self, width, height):
+      self.width = width
+      self.height = height
+   def length(self):
+      print("사각형 둘레:", self.width*2 + self.height*2)
+   def area(self):
+      print("직사각형 면적 :", self.width * self.height)
+
+class Square(Rectangle):
+   def __init__(self, a):
+      super().__init__(a, a)
+   def area(self):
+      print("정사각형 면적 :", pow(self.width, 2))
+
+s = Square(10)
+s.length()
+s.area()
+
+#--------------------------------------------------------------------------#
